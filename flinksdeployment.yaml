@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flinks-deployment
+spec:
+  selector:
+    matchLabels:
+      run: flinks
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: flinks
+    spec:
+      containers:
+        - name: flinks
+          image: flinks
+          ports:
+            - containerPort: 8080
+              protocol: TCP
